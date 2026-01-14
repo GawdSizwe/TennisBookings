@@ -172,7 +172,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## 👤 Author
 
 **Sizwe Mazibuko**
-- Email: smazibuko@e4.co.za
 - GitHub: [@GawdSizwe](https://github.com/GawdSizwe)
 
 ## 🙏 Acknowledgments
@@ -180,11 +179,3 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - Bootstrap team for the excellent CSS framework
 - ASP.NET Core team for the robust web framework
 - All contributors and users of this project
-
-## 📞 Support
-
-For support, email smazibuko@e4.co.za or create an issue in the repository.
-
----
-
-**Built with ❤️ using ASP.NET Core and modern web technologies**
