@@ -10,21 +10,21 @@ var products = new List<ProductOutputModel>
 	{
 		Name = "ProTech Racket",
 		Description = "The best racket on the market today! Never miss a shot.",
-		Price = 150.00
+		Price = 3750.00
 	},
 
 	new ProductOutputModel
 	{
 		Name = "Yellow Spheres",
 		Description = "Performance tennis balls with fantastic durability.",
-		Price = 15.75
+		Price = 395.00
 	},
 
 	new ProductOutputModel
 	{
 		Name = "Go-faster Shorts",
 		Description = "Never be late to the ball again with our patented go-faster fabric technology.",
-		Price = 45.95
+		Price = 1150.00
 	}
 };
 

@@ -1,21 +1,21 @@
 @page
 @model IndexModel
 @{
-    ViewData["Title"] = "Welcome to Tennis by the Sea";
+    ViewData["Title"] = "Welcome to Tennis by the Ocean";
 }
 
 <!-- Hero Section -->
 <div class="hero-section text-center mb-5">
     <div class="container">
-        <h1 class="display-3 fw-bold mb-3">Welcome to Tennis by the Sea</h1>
+        <h1 class="display-3 fw-bold mb-4">TENNIS BY THE OCEAN</h1>
         @if (Model.ShowGreeting)
         {
             <h3 class="mb-4" style="color: @Model.GreetingColour">@Model.Greeting</h3>
         }
-        <p class="lead text-white opacity-90 mb-4">Your premier tennis destination in Brighton</p>
-        <div class="d-flex gap-3 justify-content-center flex-wrap">
-            <a class="btn btn-light btn-lg px-4 py-3 fw-semibold" asp-page="FindAvailableCourts">Book a Court Now</a>
-            <a class="btn btn-outline-light btn-lg px-4 py-3 fw-semibold" asp-page="Contact">Contact Us</a>
+        <p class="lead mb-5">Championship Excellence on South Africa's Coastal Gem</p>
+        <div class="d-flex gap-4 justify-content-center flex-wrap">
+            <a class="btn btn-light btn-lg px-5 py-3" asp-page="FindAvailableCourts">Reserve Court</a>
+            <a class="btn btn-outline-light btn-lg px-5 py-3" asp-page="Contact">Enquire</a>
         </div>
     </div>
 </div>
@@ -48,50 +48,49 @@
 <div class="row mb-5">
     <div class="col-12">
         <div class="modern-card">
-            <h2 class="section-title text-gradient">About Our Club</h2>
-            <p class="fs-5 mb-3">
-                We are a friendly and well-equipped tennis club in the sunny seaside town of Brighton. We cater to players of all standards
-                with our award-winning courts and training. Whether you want a friendly game, some serious competition
-                or to improve your skills, we are the club for you.
+            <h2 class="section-title">Heritage & Excellence</h2>
+            <p class="fs-5 mb-4">
+                Positioned along South Africa's spectacular Indian Ocean coastline between Durban and Cape Town, our establishment 
+                represents the pinnacle of tennis refinement. We cultivate an environment where tradition meets contemporary excellence, 
+                welcoming players who appreciate the art of the game and the pursuit of mastery.
             </p>
             <p class="fs-5">
-                We have three fantastic grass courts and for the winter season and rainy days, high quality air-conditioned indoor courts for our premium members. Our
-                clubhouse is equipped with changing and shower facilities for those before work sessions!
+                Our facilities feature three championship-caliber grass courts, complemented by climate-controlled indoor courts 
+                for year-round excellence. The clubhouse offers premium amenities including private changing facilities and 
+                executive lounges, designed for the discerning athlete.
             </p>
         </div>
     </div>
 </div>
 
-<!-- Trial Day Section -->
+<!-- Membership Invitation Section -->
 <div class="row mb-5">
     <div class="col-12">
-        <div class="modern-card" style="background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%); border-left: 4px solid #10b981;">
-            <h3 class="fw-bold mb-3" style="color: #065f46;">Want to Take a Look Around?</h3>
-            <p class="fs-5 mb-0" style="color: #047857;">
-                We offer a free trial day to all prospective members where you can try out the courts and facilities. Our membership starts at only <strong>£40 per month</strong>
-                which includes some training time with our club pro.
+        <div class="modern-card" style="background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border-left: 3px solid #006633;">
+            <h3 class="fw-bold mb-3" style="color: #2F1757;">Experience Distinguished Membership</h3>
+            <p class="fs-5 mb-0" style="color: #2d3748;">
+                We extend an invitation to prospective members to experience our facilities firsthand through a complimentary 
+                trial visit. Membership commences at <strong>R1,000 monthly</strong>, inclusive of personalized instruction 
+                with our resident professional.
             </p>
         </div>
     </div>
 </div>
 
 <!-- Membership Products -->
-<h2 class="section-title text-gradient text-center mb-4">Membership Options</h2>
+<h2 class="section-title text-center mb-5">Membership Tiers</h2>
 <div class="row g-4 mb-5">
     @foreach (var product in Model.Products)
     {
         <div class="col-lg-4 col-md-6">
             <div class="product-card text-center">
-                <div class="mb-3">
-                    <span class="display-4">🎾</span>
+                <h4 class="fw-bold mb-4" style="letter-spacing: 0.1em; text-transform: uppercase; font-size: 1.25rem; color: #2F1757;">@product.Name</h4>
+                <p class="mb-5" style="color: #2d3748; min-height: 3rem;">@product.Description</p>
+                <div class="mb-5">
+                    <span class="display-5 fw-bold text-gradient">@product.Price.ToString("C", new System.Globalization.CultureInfo("en-ZA"))</span>
+                    <span class="d-block mt-2" style="color: #2d3748; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase;">Monthly</span>
                 </div>
-                <h4 class="fw-bold mb-3">@product.Name</h4>
-                <p class="mb-4">@product.Description</p>
-                <div class="mb-4">
-                    <span class="display-5 fw-bold text-gradient">@product.Price.ToString("C")</span>
-                    <span class="text-muted d-block mt-2">per month</span>
-                </div>
-                <a class="btn btn-primary w-100" asp-page="FindAvailableCourts">Get Started</a>
+                <a class="btn btn-primary w-100" asp-page="FindAvailableCourts">Reserve</a>
             </div>
         </div>
     }
