@@ -1,0 +1,69 @@
+@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<div class="container">
+    <div class="text-center mb-5">
+        <span class="display-3">⚡</span>
+        <h1 class="section-title text-gradient mt-3 d-inline-block">Admin Dashboard</h1>
+        <p class="lead text-muted">Manage your tennis club operations</p>
+    </div>
+
+    <div class="row g-4 mb-5">
+        <div class="col-lg-4 col-md-6">
+            <a asp-area="Admin" asp-controller="Courts" asp-action="WeeklyBookings" class="text-decoration-none">
+                <div class="modern-card text-center h-100" style="border-left: 4px solid #14b8a6; cursor: pointer;">
+                    <div class="mb-3">
+                        <span class="display-3">📅</span>
+                    </div>
+                    <h4 class="fw-bold mb-3 text-gradient">Court Bookings</h4>
+                    <p class="text-muted mb-4">View and manage upcoming court bookings for the week</p>
+                    <button class="btn btn-primary w-100">Manage Bookings</button>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+            <a asp-area="Admin" asp-controller="Courts" asp-action="UpcomingMaintenance" class="text-decoration-none">
+                <div class="modern-card text-center h-100" style="border-left: 4px solid #f59e0b; cursor: pointer;">
+                    <div class="mb-3">
+                        <span class="display-3">🔧</span>
+                    </div>
+                    <h4 class="fw-bold mb-3" style="color: #f59e0b;">Maintenance Schedule</h4>
+                    <p class="text-muted mb-4">Review scheduled maintenance work on courts</p>
+                    <button class="btn btn-warning w-100 text-dark fw-semibold">View Maintenance</button>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+            <a asp-area="Admin" asp-controller="Staff" asp-action="AddStaffMember" class="text-decoration-none">
+                <div class="modern-card text-center h-100" style="border-left: 4px solid #8b5cf6; cursor: pointer;">
+                    <div class="mb-3">
+                        <span class="display-3">👥</span>
+                    </div>
+                    <h4 class="fw-bold mb-3" style="color: #8b5cf6;">Staff Management</h4>
+                    <p class="text-muted mb-4">Add new staff members to the system</p>
+                    <button class="btn w-100 fw-semibold" style="background: #8b5cf6; color: white;">Add Staff</button>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="modern-card" style="background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%); border-left: 4px solid #0f766e;">
+                <div class="d-flex align-items-center">
+                    <span class="fs-1 me-4">💡</span>
+                    <div>
+                        <h5 class="fw-bold mb-2" style="color: #0f766e;">Quick Tip</h5>
+                        <p class="mb-0" style="color: #134e4a;">
+                            Use the navigation menu above to quickly access different sections of the admin panel. 
+                            You can also return to the member site anytime by clicking "Member Site" in the navigation.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

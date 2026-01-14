@@ -1,0 +1,39 @@
+@using TennisBookings
+@{
+    ViewData["Title"] = "Upload Complete";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="modern-card text-center">
+                <div class="mb-4">
+                    <span class="display-1">✅</span>
+                </div>
+                <h1 class="fw-bold mb-3" style="color: #059669;">Upload Complete!</h1>
+                <p class="lead text-muted mb-5">
+                    Your results have been uploaded and processed successfully!
+                </p>
+
+                <div class="p-4 rounded-3 mb-4" style="background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);">
+                    <div class="d-flex align-items-center justify-content-center">
+                        <span class="fs-3 me-3">📊</span>
+                        <div>
+                            <strong style="color: #065f46;">Success:</strong>
+                            <span style="color: #047857;"> All match results have been imported into the system.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-grid gap-2 d-md-flex justify-content-center">
+                    <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="btn btn-primary btn-lg px-5">
+                        Back to Dashboard
+                    </a>
+                    <a asp-area="Admin" asp-controller="Results" asp-action="UploadResults" class="btn btn-outline-secondary btn-lg px-5">
+                        Upload More Results
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

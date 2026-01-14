@@ -1,0 +1,38 @@
+@{
+    ViewData["Title"] = "Upload Failed";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="modern-card text-center">
+                <div class="mb-4">
+                    <span class="display-1">❌</span>
+                </div>
+                <h1 class="fw-bold mb-3" style="color: #dc2626;">Upload Failed</h1>
+                <p class="lead text-muted mb-5">
+                    Your results could not be uploaded. Please try again later.
+                </p>
+
+                <div class="alert alert-danger text-start mb-4">
+                    <div class="d-flex align-items-start">
+                        <span class="fs-4 me-3">⚠️</span>
+                        <div>
+                            <strong>Error:</strong> The file upload process encountered an error. 
+                            Please check your file format and try again. If the problem persists, contact support.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-grid gap-2 d-md-flex justify-content-center">
+                    <a asp-area="Admin" asp-controller="Results" asp-action="UploadResults" class="btn btn-primary btn-lg px-5">
+                        Try Again
+                    </a>
+                    <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary btn-lg px-5">
+                        Back to Dashboard
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

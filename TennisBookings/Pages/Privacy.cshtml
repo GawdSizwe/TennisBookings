@@ -1,0 +1,65 @@
+﻿@page
+@model PrivacyModel
+@{
+    ViewData["Title"] = "Privacy Policy";
+}
+
+<div class="row justify-content-center">
+    <div class="col-lg-10">
+        <div class="text-center mb-5">
+            <span class="display-3">🔒</span>
+            <h1 class="section-title text-gradient mt-3 d-inline-block">Privacy Policy</h1>
+            <p class="lead text-muted">Your privacy matters to us</p>
+        </div>
+
+        <div class="modern-card">
+            <div class="mb-5">
+                <h3 class="fw-bold mb-3" style="color: #0f766e;">Our Commitment to Privacy</h3>
+                <p class="fs-5 text-muted">
+                    At Tennis by the Sea, we are committed to protecting your privacy and ensuring the security of your personal information.
+                    This privacy policy outlines how we collect, use, and safeguard your data.
+                </p>
+            </div>
+
+            <div class="mb-5 p-4 rounded-3" style="background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);">
+                <h4 class="fw-bold mb-3" style="color: #1e40af;">Information We Collect</h4>
+                <ul class="fs-6 mb-0" style="color: #1e3a8a;">
+                    <li class="mb-2">Personal identification information (name, email address, phone number)</li>
+                    <li class="mb-2">Booking and reservation details</li>
+                    <li class="mb-2">Payment and billing information</li>
+                    <li class="mb-2">Account preferences and settings</li>
+                </ul>
+            </div>
+
+            <div class="mb-5 p-4 rounded-3" style="background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);">
+                <h4 class="fw-bold mb-3" style="color: #065f46;">How We Use Your Information</h4>
+                <ul class="fs-6 mb-0" style="color: #047857;">
+                    <li class="mb-2">To process your court bookings and reservations</li>
+                    <li class="mb-2">To communicate important updates about your bookings</li>
+                    <li class="mb-2">To improve our services and user experience</li>
+                    <li class="mb-2">To send promotional offers (with your consent)</li>
+                </ul>
+            </div>
+
+            <div class="mb-5 p-4 rounded-3" style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);">
+                <h4 class="fw-bold mb-3" style="color: #92400e;">Data Security</h4>
+                <p class="fs-6 mb-0" style="color: #78350f;">
+                    We implement industry-standard security measures to protect your personal information from unauthorized access,
+                    disclosure, alteration, or destruction. Your data is encrypted and stored securely.
+                </p>
+            </div>
+
+            <div class="p-4 rounded-3" style="background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%);">
+                <h4 class="fw-bold mb-3" style="color: #0f766e;">Contact Us</h4>
+                <p class="fs-6 mb-0" style="color: #134e4a;">
+                    If you have any questions about this Privacy Policy or how we handle your data, please 
+                    <a asp-page="Contact" class="fw-bold" style="color: #0f766e;">contact us</a>.
+                </p>
+            </div>
+        </div>
+
+        <div class="text-center mt-4">
+            <a asp-page="Index" class="btn btn-outline-secondary btn-lg">Back to Home</a>
+        </div>
+    </div>
+</div>

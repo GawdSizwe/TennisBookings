@@ -1,0 +1,47 @@
+@{
+    ViewData["Title"] = "Upload Results";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="modern-card">
+                <div class="text-center mb-5">
+                    <span class="display-3">📤</span>
+                    <h1 class="section-title text-gradient mt-3 d-inline-block">Upload Results</h1>
+                    <p class="lead text-muted">Upload match results via CSV file</p>
+                </div>
+
+                <form method="post" enctype="multipart/form-data" asp-controller="Results" asp-action="FileUpload" asp-area="Admin">
+                    <div class="mb-4">
+                        <label class="control-label fs-5 mb-3">
+                            <strong>Select CSV File</strong>
+                        </label>
+                        <input type="file" id="file" name="file" class="form-control form-control-lg" accept=".csv" />
+                        <div class="form-text mt-2">Choose a CSV file containing match scores</div>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary btn-lg py-3">
+                            <strong>Upload Results</strong>
+                        </button>
+                    </div>
+                </form>
+
+                <div class="mt-4 p-4 rounded-3" style="background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);">
+                    <div class="d-flex align-items-start">
+                        <span class="fs-4 me-3">ℹ️</span>
+                        <div>
+                            <strong style="color: #1e40af;">File Requirements:</strong>
+                            <ul class="mb-0 mt-2" style="color: #1e3a8a;">
+                                <li>File must be in CSV format</li>
+                                <li>Ensure all required columns are present</li>
+                                <li>Check for correct date and score formatting</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

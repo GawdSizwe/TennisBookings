@@ -1,0 +1,57 @@
+﻿@page
+@model ErrorModel
+@{
+    ViewData["Title"] = "Error";
+}
+
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="modern-card text-center">
+            <div class="mb-4">
+                <span class="display-1">⚠️</span>
+            </div>
+            <h1 class="fw-bold mb-3" style="color: #dc2626;">Oops! Something Went Wrong</h1>
+            <p class="lead text-muted mb-4">
+                We're sorry, but an error occurred while processing your request.
+            </p>
+
+            @if (Model.ShowRequestId)
+            {
+                <div class="alert alert-danger text-start mb-4">
+                    <strong>Request ID:</strong> <code class="ms-2">@Model.RequestId</code>
+                </div>
+            }
+
+            <div class="d-grid gap-2 d-md-flex justify-content-center mb-5">
+                <a asp-page="/Index" class="btn btn-primary btn-lg px-5">
+                    Go to Homepage
+                </a>
+                <button onclick="history.back()" class="btn btn-outline-secondary btn-lg px-5">
+                    Go Back
+                </button>
+            </div>
+
+            <div class="mt-5 p-4 rounded-3 text-start" style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);">
+                <h5 class="fw-bold mb-3" style="color: #92400e;">
+                    <span class="me-2">🔧</span>Development Information
+                </h5>
+                <p class="mb-3" style="color: #78350f;">
+                    <strong>Note:</strong> This section is only visible in development mode.
+                </p>
+                <ul class="mb-0" style="color: #78350f;">
+                    <li class="mb-2">
+                        Swapping to the <strong>Development</strong> environment displays detailed information about errors.
+                    </li>
+                    <li class="mb-2">
+                        <strong>The Development environment shouldn't be enabled for deployed applications</strong> as it can result in 
+                        displaying sensitive information to end users.
+                    </li>
+                    <li>
+                        For local debugging, set the <strong>ASPNETCORE_ENVIRONMENT</strong> environment variable to 
+                        <strong>Development</strong> and restart the app.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+@model CancelBookingConfirmationViewModel
+@{
+    ViewData["Title"] = "Confirm Booking Cancellation";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="modern-card">
+                <div class="text-center mb-4">
+                    <span class="display-1">⚠️</span>
+                    <h1 class="section-title mt-3" style="color: #dc2626;">Confirm Booking Cancellation</h1>
+                    <p class="lead text-muted">Are you sure you wish to cancel this booking?</p>
+                </div>
+
+                <div class="p-4 rounded-3 mb-4" style="background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%); border-left: 4px solid #dc2626;">
+                    <h3 class="fw-bold mb-3" style="color: #991b1b;">
+                        <span class="me-2">📅</span>@Model.Date.ToString("D")
+                    </h3>
+                    <div class="d-flex align-items-center mb-2">
+                        <span class="fs-4 me-2">🎾</span>
+                        <h5 class="fw-bold mb-0" style="color: #7f1d1d;">@Model.CourtName</h5>
+                    </div>
+                    <div class="d-flex align-items-center mt-3">
+                        <span class="me-2 fs-5">⏰</span>
+                        <span class="fw-semibold fs-5" style="color: #991b1b;">@Model.StartTime - @Model.EndTime</span>
+                    </div>
+                </div>
+
+                <div class="alert alert-warning d-flex align-items-start mb-4">
+                    <span class="fs-4 me-3">⚠️</span>
+                    <div>
+                        <strong>Warning:</strong> This action cannot be undone. The booking will be permanently cancelled and the court time slot will become available for other members.
+                    </div>
+                </div>
+
+                <form method="POST">
+                    <input asp-for="BookingId" type="hidden" />
+                    <div class="d-grid gap-3">
+                        <button type="submit" name="submitButton" value="Confirm" class="btn btn-danger btn-lg py-3">
+                            <strong>Yes, Cancel This Booking</strong>
+                        </button>
+                        <button type="submit" name="submitButton" value="Cancel" class="btn btn-outline-secondary btn-lg py-3">
+                            <strong>No, Keep This Booking</strong>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,98 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Welcome to Tennis by the Sea";
+}
+
+<!-- Hero Section -->
+<div class="hero-section text-center mb-5">
+    <div class="container">
+        <h1 class="display-3 fw-bold mb-3">Welcome to Tennis by the Sea</h1>
+        @if (Model.ShowGreeting)
+        {
+            <h3 class="mb-4" style="color: @Model.GreetingColour">@Model.Greeting</h3>
+        }
+        <p class="lead text-white opacity-90 mb-4">Your premier tennis destination in Brighton</p>
+        <div class="d-flex gap-3 justify-content-center flex-wrap">
+            <a class="btn btn-light btn-lg px-4 py-3 fw-semibold" asp-page="FindAvailableCourts">Book a Court Now</a>
+            <a class="btn btn-outline-light btn-lg px-4 py-3 fw-semibold" asp-page="Contact">Contact Us</a>
+        </div>
+    </div>
+</div>
+
+@if (User?.Identity is not null && User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+{
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="alert alert-info d-flex align-items-center justify-content-between">
+                <span><strong>Admin Access:</strong> You have administrative privileges</span>
+                <a class="btn btn-primary btn-sm" asp-area="Admin" asp-controller="Home" asp-action="Index">Go to Admin Dashboard</a>
+            </div>
+        </div>
+    </div>
+}
+
+@if (Model.ShowWeatherForecast)
+{
+    <div class="row mb-5">
+        <div class="col-12">
+            <div class="modern-card" style="background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); border-left: 4px solid #3b82f6;">
+                <h4 class="fw-bold mb-3" style="color: #1e40af;">@Model.ForecastSectionTitle</h4>
+                <p class="mb-0" style="color: #1e3a8a; font-size: 1.1rem;">@Model.WeatherDescription</p>
+            </div>
+        </div>
+    </div>
+}
+
+<!-- About Section -->
+<div class="row mb-5">
+    <div class="col-12">
+        <div class="modern-card">
+            <h2 class="section-title text-gradient">About Our Club</h2>
+            <p class="fs-5 mb-3">
+                We are a friendly and well-equipped tennis club in the sunny seaside town of Brighton. We cater to players of all standards
+                with our award-winning courts and training. Whether you want a friendly game, some serious competition
+                or to improve your skills, we are the club for you.
+            </p>
+            <p class="fs-5">
+                We have three fantastic grass courts and for the winter season and rainy days, high quality air-conditioned indoor courts for our premium members. Our
+                clubhouse is equipped with changing and shower facilities for those before work sessions!
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- Trial Day Section -->
+<div class="row mb-5">
+    <div class="col-12">
+        <div class="modern-card" style="background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%); border-left: 4px solid #10b981;">
+            <h3 class="fw-bold mb-3" style="color: #065f46;">Want to Take a Look Around?</h3>
+            <p class="fs-5 mb-0" style="color: #047857;">
+                We offer a free trial day to all prospective members where you can try out the courts and facilities. Our membership starts at only <strong>£40 per month</strong>
+                which includes some training time with our club pro.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- Membership Products -->
+<h2 class="section-title text-gradient text-center mb-4">Membership Options</h2>
+<div class="row g-4 mb-5">
+    @foreach (var product in Model.Products)
+    {
+        <div class="col-lg-4 col-md-6">
+            <div class="product-card text-center">
+                <div class="mb-3">
+                    <span class="display-4">🎾</span>
+                </div>
+                <h4 class="fw-bold mb-3">@product.Name</h4>
+                <p class="mb-4">@product.Description</p>
+                <div class="mb-4">
+                    <span class="display-5 fw-bold text-gradient">@product.Price.ToString("C")</span>
+                    <span class="text-muted d-block mt-2">per month</span>
+                </div>
+                <a class="btn btn-primary w-100" asp-page="FindAvailableCourts">Get Started</a>
+            </div>
+        </div>
+    }
+</div>

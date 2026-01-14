@@ -1,0 +1,83 @@
+@model BookingListerViewModel
+@{
+    ViewData["Title"] = "Upcoming Court Bookings";
+}
+
+<div class="container">
+    <div class="text-center mb-5">
+        <span class="display-3">📅</span>
+        <h1 class="section-title text-gradient mt-3 d-inline-block">Upcoming Court Bookings</h1>
+        <p class="lead text-muted">Viewing bookings until @Model.EndOfWeek.ToString("D")</p>
+    </div>
+
+    @if (Model.CancelSuccessful)
+    {
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="alert alert-success d-flex align-items-center">
+                    <span class="fs-3 me-3">✅</span>
+                    <strong>You've successfully cancelled a booking.</strong>
+                </div>
+            </div>
+        </div>
+    }
+
+    @if (!Model.CourtBookings.Any())
+    {
+        <div class="row">
+            <div class="col-12">
+                <div class="modern-card text-center py-5">
+                    <span class="display-1 mb-4 d-block">📭</span>
+                    <h3 class="mb-3">No Bookings Found</h3>
+                    <p class="text-muted">There are no upcoming bookings for this week.</p>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        @foreach (var date in Model.CourtBookings)
+        {
+            <div class="row mb-5">
+                <div class="col-12">
+                    <div class="modern-card">
+                        <h3 class="fw-bold mb-4 pb-3 border-bottom">
+                            <span class="text-gradient">@date.Key.ToString("D")</span>
+                        </h3>
+                        <div class="row g-4">
+                            @foreach (var booking in date)
+                            {
+                                <div class="col-lg-6">
+                                    <div class="p-4 rounded-3 h-100" style="background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); border-left: 4px solid #3b82f6;">
+                                        <div class="d-flex justify-content-between align-items-start mb-3">
+                                            <div>
+                                                <div class="d-flex align-items-center mb-2">
+                                                    <span class="fs-4 me-2">🎾</span>
+                                                    <h5 class="fw-bold mb-0" style="color: #1e40af;">@booking.CourtName</h5>
+                                                </div>
+                                                <div class="d-flex align-items-center text-muted mb-2">
+                                                    <span class="me-2">⏰</span>
+                                                    <span class="fw-semibold">@booking.StartDateTime.Hour.To12HourClockString() - @booking.EndDateTime.Hour.To12HourClockString()</span>
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <span class="me-2">👤</span>
+                                                    <span style="color: #1e3a8a;">@booking.MemberName</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mt-3 pt-3 border-top">
+                                            <a asp-controller="Courts" asp-action="CancelBookingConfirmation" asp-route-bookingId="@booking.BookingId" 
+                                               class="btn btn-danger w-100 fw-semibold">
+                                                Cancel Booking
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>

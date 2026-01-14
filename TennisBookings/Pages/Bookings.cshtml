@@ -1,0 +1,75 @@
+@page
+@model BookingsModel
+@{
+    ViewData["Title"] = "Your Bookings";
+}
+
+<div class="text-center mb-5">
+    <span class="display-3">📅</span>
+    <h1 class="section-title text-gradient mt-3 d-inline-block">Your Bookings</h1>
+    <p class="lead text-muted">@Model.Greeting</p>
+</div>
+
+@if (Model.BookingSuccess)
+{
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="alert alert-success d-flex align-items-center">
+                <span class="fs-3 me-3">✅</span>
+                <strong>You've successfully created a booking!</strong>
+            </div>
+        </div>
+    </div>
+}
+
+@if (!Model.CourtBookings.Any())
+{
+    <div class="row">
+        <div class="col-12">
+            <div class="modern-card text-center py-5">
+                <span class="display-1 mb-4 d-block">🎾</span>
+                <h3 class="mb-3">No Bookings Yet</h3>
+                <p class="text-muted mb-4">You don't have any court bookings at the moment.</p>
+                <a asp-page="FindAvailableCourts" class="btn btn-primary btn-lg">Book a Court Now</a>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    @foreach (var date in Model.CourtBookings)
+    {
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="modern-card">
+                    <h3 class="fw-bold mb-4 pb-3 border-bottom">
+                        <span class="text-gradient">@date.Key.ToString("D")</span>
+                    </h3>
+                    <div class="row g-3">
+                        @foreach (var booking in date)
+                        {
+                            <div class="col-md-6">
+                                <div class="p-4 rounded-3" style="background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%); border-left: 4px solid #14b8a6;">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <span class="fs-4 me-2">🎾</span>
+                                        <h5 class="fw-bold mb-0" style="color: #0f766e;">Court @booking.CourtId</h5>
+                                    </div>
+                                    <div class="d-flex align-items-center text-muted">
+                                        <span class="me-2">⏰</span>
+                                        <span class="fw-semibold">@booking.StartDateTime.Hour.To12HourClockString() - @booking.EndDateTime.Hour.To12HourClockString()</span>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    
+    <div class="row">
+        <div class="col-12 text-center">
+            <a asp-page="FindAvailableCourts" class="btn btn-primary btn-lg">Book Another Court</a>
+        </div>
+    </div>
+}

@@ -1,0 +1,65 @@
+@model AddStaffMemberViewModel
+@inject TennisBookings.Services.Staff.IStaffRolesOptionsService StaffOptions
+@{
+    ViewData["Title"] = "Add Staff Member";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="modern-card">
+                <div class="text-center mb-5">
+                    <span class="display-3">👥</span>
+                    <h1 class="section-title text-gradient mt-3 d-inline-block">Add Staff Member</h1>
+                    <p class="lead text-muted">Add a new staff member to the system</p>
+                </div>
+
+                <form method="POST">
+                    <div class="mb-4">
+                        <label class="control-label fs-5 mb-3">
+                            <strong>First Name</strong>
+                        </label>
+                        @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control form-control-lg", placeholder = "Enter first name" })
+                        <div class="form-text mt-2">Staff member's first name</div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="control-label fs-5 mb-3">
+                            <strong>Last Name</strong>
+                        </label>
+                        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control form-control-lg", placeholder = "Enter last name" })
+                        <div class="form-text mt-2">Staff member's last name</div>
+                    </div>
+
+                    <div class="mb-5">
+                        <label class="control-label fs-5 mb-3">
+                            <strong>Role</strong>
+                        </label>
+                        @Html.DropDownListFor(m => m.Role, StaffOptions.Roles.Select(r =>
+                            new SelectListItem { Text = r, Value = r}), "-- Select Role --", new { @class = "form-select form-select-lg" })
+                        <div class="form-text mt-2">Select the staff member's role</div>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary btn-lg py-3">
+                            <strong>Add Staff Member</strong>
+                        </button>
+                        <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary btn-lg">
+                            Cancel
+                        </a>
+                    </div>
+                </form>
+
+                <div class="mt-4 p-4 rounded-3" style="background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);">
+                    <div class="d-flex align-items-center">
+                        <span class="fs-4 me-3">💡</span>
+                        <div>
+                            <strong style="color: #1e40af;">Tip:</strong>
+                            <span style="color: #1e3a8a;"> Make sure all information is correct before adding the staff member.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
