@@ -188,4 +188,3 @@ For support, email smazibuko@e4.co.za or create an issue in the repository.
 ---
 
 **Built with ❤️ using ASP.NET Core and modern web technologies**
-
