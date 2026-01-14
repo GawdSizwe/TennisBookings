@@ -3,21 +3,25 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] -  Tennis by the Sea</title>
+    <title>@ViewData["Title"] - Tennis by the Ocean</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/TennisBookings.styles.css" asp-append-version="true" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="modern-header">
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container">
                 <a class="navbar-brand fw-bold" asp-area="" asp-page="/Index">
-                    <span class="brand-icon">🎾</span>
-                    Tennis by the Sea
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; margin-right: 0.75rem; vertical-align: middle;">
+                        <circle cx="16" cy="16" r="14" fill="#006633" stroke="#2F1757" stroke-width="2"/>
+                        <path d="M4 16 Q16 8 28 16" stroke="#ffffff" stroke-width="1.5" fill="none"/>
+                        <path d="M4 16 Q16 24 28 16" stroke="#ffffff" stroke-width="1.5" fill="none"/>
+                    </svg>
+                    TENNIS BY THE OCEAN
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -50,7 +54,7 @@
         <div class="container py-4">
             <div class="row align-items-center">
                 <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    <span class="text-muted">&copy; 2026 Tennis by the Sea. All rights reserved.</span>
+                    <span class="text-muted">&copy; 2026 Tennis by the Ocean. All rights reserved.</span>
                 </div>
                 <div class="col-md-6 text-center text-md-end">
                     <a asp-area="" asp-page="/Privacy" class="footer-link me-3">Privacy Policy</a>
